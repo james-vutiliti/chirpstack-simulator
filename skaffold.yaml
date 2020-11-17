@@ -1,0 +1,21 @@
+apiVersion: skaffold/v2beta9
+kind: Config
+metadata:
+  name: chirpstack-simulator
+build:
+  artifacts:
+  - image: gcr.io/vu-james-celli/chirpstack-simulator
+    context: .
+    docker:
+      dockerfile: Dockerfile
+  tagPolicy:
+    envTemplate:
+      template: latest
+  local:
+    concurrency: 1
+deploy:
+  kubectl:
+    manifests:
+    - k8s/chirpstack-simulator-deployment.yaml
+  logs:
+    prefix: container
