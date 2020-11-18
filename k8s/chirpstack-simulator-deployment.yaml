@@ -29,5 +29,7 @@ spec:
             - chirpstack-simulator
           image: gcr.io/vu-james-celli/chirpstack-simulator:latest
           name: chirpstack-simulator
+          # ports:
+          #   - containerPort: 9000
           resources: {}
       restartPolicy: Always

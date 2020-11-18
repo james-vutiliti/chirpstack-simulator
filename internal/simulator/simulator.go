@@ -359,7 +359,10 @@ func (s *simulation) tearDownDeviceProfile() error {
 func (s *simulation) setupApplication() error {
 	log.Info("simulator: init application")
 
+	// var appName string
+
 	appName, err := uuid.NewV4()
+	// appName = "HotDrops"
 	if err != nil {
 		return err
 	}
@@ -368,8 +371,17 @@ func (s *simulation) setupApplication() error {
 		Application: &api.Application{
 			Name:             appName.String(),
 			Description:      appName.String(),
+			// Name:             appName,
+			// Description:      appName,
 			OrganizationId:   s.serviceProfile.OrganizationId,
 			ServiceProfileId: s.serviceProfile.Id,
+			ackNotificationURL: "https://api-lora.vutiliti.io/api/data/ack",
+			errorNotificationURL: "https://api-lora.vutiliti.io/api/data/error",
+			joinNotificationURL: "https://api-lora.vutiliti.io/api/data/join",
+			locationNotificationURL: "https://api-lora.vutiliti.io/api/data/location",
+			statusNotificationURL: "https://api-lora.vutiliti.io/api/data/status",
+			txAckNotificationURL: "https://api-lora.vutiliti.io/api/data/txack",
+			uplinkDataURL: "https://api-lora.vutiliti.io/api/data/uplink",
 		},
 	})
 	if err != nil {
