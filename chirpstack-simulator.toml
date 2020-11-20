@@ -23,7 +23,7 @@ log_level=4
   # token can be generated using the login API endpoint. In the near-future
   # it will be possible to generate these tokens within the web-interface:
   # https://github.com/brocaar/chirpstack-application-server/pull/421
-  jwt_token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjaGlycHN0YWNrLWFwcGxpY2F0aW9uLXNlcnZlciIsImV4cCI6MTYwNTcyNzQxOSwiaXNzIjoiY2hpcnBzdGFjay1hcHBsaWNhdGlvbi1zZXJ2ZXIiLCJuYmYiOjE2MDU2NDEwMTksInN1YiI6InVzZXIiLCJ1c2VybmFtZSI6ImFkbWluIn0.kl92dadtN3xA4dmIZ-8Cl4lkdm8qbX-U8uKCFSjAU9I"
+  jwt_token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjaGlycHN0YWNrLWFwcGxpY2F0aW9uLXNlcnZlciIsImV4cCI6MTYwNTk3NjI3OSwiaXNzIjoiY2hpcnBzdGFjay1hcHBsaWNhdGlvbi1zZXJ2ZXIiLCJuYmYiOjE2MDU4ODk4NzksInN1YiI6InVzZXIiLCJ1c2VybmFtZSI6ImFkbWluIn0.kvpRlupBWQ-w1EKeK2_FvY2qUeTq5jbIstMUfhs_KJo"
 
   # Server.
   #
@@ -84,7 +84,7 @@ log_level=4
 #
 # It is recommended to create a new organization with a new service-profile
 # in the ChirpStack Application Server.
-service_profile_id="328c7dd2-6417-44da-8085-65fefc242db2"
+service_profile_id="1ee8bec1-f980-475b-8530-369f3766823a"
 
 # Duration.
 #
