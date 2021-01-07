@@ -23,15 +23,15 @@ log_level=4
   # token can be generated using the login API endpoint. In the near-future
   # it will be possible to generate these tokens within the web-interface:
   # https://github.com/brocaar/chirpstack-application-server/pull/421
-  jwt_token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjaGlycHN0YWNrLWFwcGxpY2F0aW9uLXNlcnZlciIsImV4cCI6MTYwNTk3NjI3OSwiaXNzIjoiY2hpcnBzdGFjay1hcHBsaWNhdGlvbi1zZXJ2ZXIiLCJuYmYiOjE2MDU4ODk4NzksInN1YiI6InVzZXIiLCJ1c2VybmFtZSI6ImFkbWluIn0.kvpRlupBWQ-w1EKeK2_FvY2qUeTq5jbIstMUfhs_KJo"
+  jwt_token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5X2lkIjoiN2FkZjY5MTgtZGM5Mi00MWQwLWIyYTctNDQ3NmZiYzI0M2UwIiwiYXVkIjoiYXMiLCJpc3MiOiJhcyIsIm5iZiI6MTYwOTk4MTkwNCwic3ViIjoiYXBpX2tleSJ9.zLcl2py7uo2vudTpsa8Jea93eZ0MMO9-jqg-f_0zrVo"
 
   # Server.
   #
   # This must point to the external API server of the ChirpStack Application
   # Server. When the server is running on the same machine, keep this to the
   # default value.
-  # server="https://chirpstack-us915.v2dev.vutiliti.io"
-  server="chirpstack-application-server:8080"
+  # server="https://chirpstack-us915.v2dev.vutiliti.io/"
+  server="localhost:8080"
 
   # Insecure.
   #
@@ -47,7 +47,7 @@ log_level=4
   [application_server.integration.mqtt]
 
   # MQTT server.
-  server="tcp://mosquitto:1883"
+  server="tcp://localhost:1883"
 
   # Username.
   username=""
@@ -66,7 +66,7 @@ log_level=4
   [network_server.gateway.backend.mqtt]
 
   # MQTT server.
-  server="tcp://mosquitto:1883"
+  server="tcp://localhost:1883"
 
   # Username.
   username=""
@@ -84,7 +84,7 @@ log_level=4
 #
 # It is recommended to create a new organization with a new service-profile
 # in the ChirpStack Application Server.
-service_profile_id="1ee8bec1-f980-475b-8530-369f3766823a"
+service_profile_id="2dede921-5d4e-48f9-bd4e-e8caf7f83e72"
 
 # Duration.
 #
@@ -102,7 +102,7 @@ activation_time="3s"
   [simulator.device]
 
   # Number of devices to simulate.
-  count=1000
+  count=100
 
   # Uplink interval.
   uplink_interval="5s"
@@ -136,14 +136,14 @@ activation_time="3s"
   command_topic_template="gateway/{{ .GatewayID }}/command/{{ .Command }}"
 
   # Min number of receiving gateways.
-  min_count=3
+  min_count=1
 
   # Max number of receiving gateways.
-  max_count=5
+  max_count=1
 
 
 # Prometheus metrics configuration.
-#
+
 # Using Prometheus (and Grafana), it is possible to visualize various
 # simulation metrics like:
 #   * Join-Requests sent

@@ -2,34 +2,40 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert -f docker-compose.yml
-    kompose.version: 1.22.0 (HEAD)
-  creationTimestamp: null
+    # prometheus.io/scrape: "true"
+    # prometheus.io/path: "/metrics"
+    # prometheus.io/port: "9000"
+    app: chirpstack-simulator
   labels:
-    io.kompose.service: chirpstack-simulator
+    app: chirpstack-simulator
   name: chirpstack-simulator
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: chirpstack-simulator
+      app: chirpstack-simulator
   strategy:
     type: Recreate
   template:
     metadata:
       annotations:
-        kompose.cmd: kompose convert -f docker-compose.yml
-        kompose.version: 1.22.0 (HEAD)
-      creationTimestamp: null
+        app: chirpstack-simulator
       labels:
-        io.kompose.service: chirpstack-simulator
+        app: chirpstack-simulator
     spec:
       containers:
         - args:
             - chirpstack-simulator
-          image: gcr.io/vu-james-celli/chirpstack-simulator:latest
+          image: gcr.io/vu-james-celli/chirpstack-simulator
           name: chirpstack-simulator
-          # ports:
-          #   - containerPort: 9000
-          resources: {}
-      restartPolicy: Always
+          ports:
+            # - name: monitoring-port
+            #   containerPort: 9000
+          volumeMounts:
+            - name: chirpstack-simulator
+              mountPath: /chirpstack-simulator.toml
+              subPath: chirpstack-simulator.toml
+      volumes:
+        - name: chirpstack-simulator
+          configMap:
+            name: chirpstack-simulator

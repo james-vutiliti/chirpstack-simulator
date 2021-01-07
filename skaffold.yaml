@@ -16,6 +16,6 @@ build:
 deploy:
   kubectl:
     manifests:
-    - k8s/chirpstack-simulator-deployment.yaml
+    - k8s/*
   logs:
     prefix: container
